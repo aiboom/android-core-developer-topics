@@ -220,6 +220,4 @@ app:layout_constraintWidth_default="wrap"
 ## 线性组中的链式约束
 在ConstraintLayout中来实现LinearLayout是十分简单的，我们需要借助双向约束，也就是线性约束来实现。
 
-<html>
 <video controls="controls" width="500" height="309" style="clear:both;display:block;margin:auto" src="https://raw.githubusercontent.com/aiboom/aiboom_top/master/constraint_layout/ice_video_build_chains.webm" type="video/webm"/>
-</html>
