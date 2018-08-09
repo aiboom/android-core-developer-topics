@@ -108,3 +108,22 @@ Intent过滤器用来过滤发送过来的Intent请求，看应用组件是否�
 所以不要认为PendingIntent和Intent的区别像网上说的一个立即执行一个稍后执行。这种说法值考虑了一种情况，实际上PendingIntent包装的Intent也能立即执行。
 
 ## Intent过滤器的过滤原则是怎样的？
+
+ Action，Category以及Data&Type的过滤关系是这样的，只有通过前一个的过滤，才能进行下一个的过滤。
+
+ 一个Intent过滤器可能有0到n个Action，能够过滤的Intent必须满足如下条件：Intent的Action必须能在Intent过滤器中找到对应的匹配。
+
+ 一个Intent过滤器可能有0到n个Category,能够过滤的Intent必须满足如下条件：Intent的Category集合必须是Intent过滤器的子集（空集也算）。
+
+> 需要注意的是，Intent过滤器必须拥有`android.intent.category.DEFAULT`才能接收隐式Intent。
+
+一个Intent过滤器可能有0到n个Data&Type，能够过滤的Intent满足的条件和Category一样。
+
+## Intent过滤器是如何过滤Data（URI）的？
+
+一个URI的构成如下：`<scheme>://<host>:<port>/<path>`。从左到右优先匹配。
+
+## Intent过滤器是如何同时过滤Data和MIME_TYPE的？
+
+1. 过滤器声明了什么，就匹配什么，没有声明的就不匹配。
+2. 如果只有type，
